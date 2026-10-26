@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#07080c">
+<title>Resultado final • 2º Turno 2026</title>
+<meta name="description" content="Balanço completo do 2º turno de 2026: mapa por cidades, gráficos e relatório para compartilhar. Dados oficiais do TSE.">
+<meta property="og:title" content="Resultado final • 2º Turno 2026">
+<meta property="og:description" content="Mapa por cidades, gráficos e percentuais completos. Dados oficiais do TSE.">
+<link rel="icon" href="/icon.svg" type="image/svg+xml">
+<link rel="manifest" href="/manifest.webmanifest">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/resultado.css">
+</head>
+<body>
+<header class="top">
+  <a class="back" href="/">← Painel ao vivo</a>
+  <span class="chip" id="status">Carregando…</span>
+</header>
+<main>
+  <section class="card hero" id="hero" aria-live="polite">
+    <p class="eyebrow">Resultado final · 2º turno 2026</p>
+    <h1 id="h-title">Carregando dados do TSE…</h1>
+    <div class="duel">
+      <div class="side s0"><b id="n0">Lula</b><small>PT · 13</small><strong id="p0">—</strong><span id="v0"></span></div>
+      <div class="side s1"><b id="n1">Flávio Bolsonaro</b><small>PL · 22</small><strong id="p1">—</strong><span id="v1"></span></div>
+    </div>
+    <div class="split"><i id="sp0"></i><i id="sp1"></i></div>
+    <p class="muted" id="h-sub"></p>
+    <ul class="checks" id="checks"></ul>
+  </section>
+
+  <section class="card">
+    <div class="card-head"><h2>Mapa por cidades</h2><span class="muted" id="map-note">Toque em um estado para ver as cidades</span></div>
+    <nav class="chips" id="chips" aria-label="Escolher estado"></nav>
+    <div class="prog" id="prog" hidden><i id="prog-fill"></i><span id="prog-text"></span></div>
+    <div class="map-wrap">
+      <svg id="svgS" viewBox="0 0 640 640" role="group" aria-label="Mapa do Brasil por estado"></svg>
+      <svg id="svgC" viewBox="0 0 644 664" role="group" aria-label="Mapa do Brasil por cidade" hidden><g id="gC"></g><path id="sel" fill="none" stroke="var(--ink)" stroke-width="1.4" pointer-events="none"></path></svg>
+    </div>
+    <div class="legend" aria-label="Legenda"><span class="l0">Lula</span><div class="ramp r0"><i></i><i></i><i></i><i></i><i></i></div><small>vantagem</small><div class="ramp r1"><i></i><i></i><i></i><i></i><i></i></div><span class="l1">Flávio</span></div>
+    <div class="cbox" id="cbox"><p class="muted">Selecione uma cidade ou estado no mapa.</p></div>
+  </section>
+
+  <section class="grid">
+    <div class="card"><div class="card-head"><h2>Vencedor por estado</h2></div><div id="won"></div></div>
+    <div class="card"><div class="card-head"><h2>Participação</h2></div><div id="part"></div></div>
+  </section>
+
+  <section class="card"><div class="card-head"><h2>Margem por estado</h2><span class="muted">pontos percentuais</span></div><div id="margins"></div></section>
+  <section class="card"><div class="card-head"><h2>Por região</h2></div><div id="regions"></div></section>
+
+  <section class="card" id="share">
+    <div class="card-head"><h2>Relatório para compartilhar</h2></div>
+    <p class="muted">Escolha o que entra. Gerar a imagem não publica nada: você decide se compartilha.</p>
+    <div class="toggles" id="toggles">
+      <label><input type="checkbox" value="res" checked><span>Resultado</span></label>
+      <label><input type="checkbox" value="map" checked><span>Mapa</span></label>
+      <label><input type="checkbox" value="reg" checked><span>Regiões</span></label>
+      <label><input type="checkbox" value="part" checked><span>Participação</span></label>
+      <label><input type="checkbox" value="city"><span>Cidades</span></label>
+    </div>
+    <div class="actions">
+      <button class="btn primary" id="b-gen" type="button">Gerar imagem</button>
+      <button class="btn" id="b-share" type="button">Compartilhar</button>
+      <button class="btn" id="b-dl" type="button">Baixar PNG</button>
+      <button class="btn" id="b-copy" type="button">Copiar texto</button>
+      <a class="btn" id="b-wa" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+    </div>
+    <p class="muted" id="share-msg" role="status"></p>
+    <canvas id="preview" hidden></canvas>
+    <pre class="txt" id="txt"></pre>
+  </section>
+</main>
+<footer class="foot">Projeto independente, sem vínculo oficial. O resultado oficial é o do TSE. Malha municipal: IBGE.</footer>
+<script type="module" src="/resultado.js"></script>
+</body>
+</html>
